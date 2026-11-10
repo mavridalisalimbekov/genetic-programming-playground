@@ -1,0 +1,6 @@
+CompileFlags:
+  Add:
+    - -IC:/msys64/ucrt64/include
+    - -IC:/msys64/ucrt64/include/SDL2
+    - --target=x86_64-w64-windows-gnu
+    - --query-driver=C:/msys64/ucrt64/bin/gcc.exe
