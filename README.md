@@ -1,4 +1,4 @@
-#Genetic Programming
+## Genetic Programming
 
 A playground for genetic programming in C
 
