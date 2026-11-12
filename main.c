@@ -35,11 +35,11 @@ void *scp(void *ptr)
     return ptr;
 }
 
-void render_board(SDL_Renderer *renderer)
+void render_grid(SDL_Renderer *renderer)
 {
     scc(SDL_SetRenderDrawColor(renderer, 90, 90, 90, 255));
 
-    for (int x = 0; x < BOARD_WIDTH; ++x) {
+    for (int x = 1; x < BOARD_WIDTH; ++x) {
         scc(SDL_RenderDrawLine(renderer,
             x * CELL_WIDTH,
             0,
@@ -48,7 +48,7 @@ void render_board(SDL_Renderer *renderer)
         ));
     }
 
-    for (int y = 0; y < BOARD_HEIGHT; ++y) {
+    for (int y = 1; y < BOARD_HEIGHT; ++y) {
         scc(SDL_RenderDrawLine(renderer,
             0,
             y * CELL_HEIGHT,
@@ -76,6 +76,8 @@ int main(int argc, char *argv[])
         SDL_RENDERER_ACCELERATED
     ));
 
+    scc(SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT));
+
     int quit = 0;
     while (!quit) {
         SDL_Event event;
@@ -90,7 +92,7 @@ int main(int argc, char *argv[])
         scc(SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255));
         scc(SDL_RenderClear(renderer));
 
-        render_board(renderer);
+        render_grid(renderer);
 
         SDL_RenderPresent(renderer);
     }
